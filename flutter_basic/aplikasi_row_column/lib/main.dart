@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -9,6 +9,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      title: 'Latihan Row dan Column',
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.blue, // warna AppBar biru
+          foregroundColor: Colors.white, // warna teks/icon jadi putih
+        ),
+      ),
+      home: Scaffold(
+        appBar: AppBar(title: Text("Latihan Row dan Column")),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text("Text 1"),
+            Text("Text 2"),
+            Text("Text 3"),
+            Row(
+              children: <Widget>[
+                Text("Row 4"),
+                Text("Row 5"),
+                Text("Row 6"),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
