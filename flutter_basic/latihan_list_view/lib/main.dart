@@ -14,6 +14,18 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      title: 'Latihan List & View',
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+      ),
+      ),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Latihan list and view demo')),
+        
+      ),
+    );
   }
 }
