@@ -14,10 +14,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   List<Widget> widgets = [];
-
-  _MyAppState() {
-    for (int i = 0; i < 15; i++) widgets.add(Text("Data ke-" + i.toString(), style: TextStyle(fontSize: 30),));
-  }
+  int counter = 1;
+  // _MyAppState() {
+  //   for (int i = 0; i < 15; i++) widgets.add(Text("Data ke-" + i.toString(), style: TextStyle(fontSize: 30),));
+  // }
 
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,16 +34,37 @@ class _MyAppState extends State<MyApp> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                ElevatedButton(child: Text("Tambah Data"), onPressed: null,),
-                ElevatedButton(child: Text("Hapus Data"), onPressed: null,),
+                ElevatedButton(
+                  child: Text("Tambah Data"),
+                  onPressed: () {
+                    setState(() {
+                      widgets.add(
+                        Text(
+                          "Data ke-" + counter.toString(),
+                          style: TextStyle(fontSize: 30),
+                        ),
+                      );
+                      counter++;
+                    });
+                  },
+                ),
+                ElevatedButton(
+                  child: Text("Hapus Data"),
+                  onPressed: () {
+                    setState(() {
+                      widgets.removeLast();
+                      counter--;
+                    });
+                  },
+                ),
               ],
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: widgets,
-            )
-          ]
-          ),
+            ),
+          ],
+        ),
       ),
     );
   }
